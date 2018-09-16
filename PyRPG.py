@@ -52,6 +52,25 @@ loboMP = Monster('Lobo Mau Picapau',200,33,6)
 
 # fim da lista de chefes
 
+#lista de magias
+
+magiclist = [fogo, gelo, agua]
+fogo == range(0, 70, 5)
+gelo == range(0, 65, 5)
+agua == range(0, 60, 5)
+
+#fim da lista de magias
+
+#lista de itens
+
+itemlist = [25hp, 50hp, 40mp, defesa]
+25hp = player.hp + 25
+50hp = player.hp + 50
+40mp = player.mp + 40
+defesa = mon.atk - mon.atk*0.20
+
+#fim da lista de magias
+
 class Player:
     def __init__(self,sex,name):
         self.sex = sex
@@ -101,7 +120,7 @@ def battle(id, canRun):
         print('\n',mon.name,': ',enemyHP,'HP\n',player.name,': ',player.hp,'HP\n')
         choiceTest=False
         while(choiceTest==False):
-            plyrinpt=input('Digite a para atacar\nDigite e para esperar\nDigite f para fugir\nDecisão: ')
+            plyrinpt=input('Digite a para atacar\nDigite e para esperar\nDigite f para fugir\nDigite mg para magia\nDigite i para item\nDecisão: ')
             if(plyrinpt=='a'):
                 enemyHP -= player.atk
                 print(player.name,'infligiu',player.atk,'de dano a',mon.name)
@@ -118,6 +137,45 @@ def battle(id, canRun):
             elif(plyrinpt=='e'):
                 choiceTest = True
                 print(player.name,'esperou')
+            elif(plyinpt=='mg'):
+                magiclist = str(input('Escolha fogo, gelo ou agua: '))
+                if magiclist == 'fogo':
+                    for fogo in (random.randint(range (0, 70, 5)))
+                    enemyHP -= fogo
+                    print (player.name, 'infligiu', fogo, 'de dano a', mon.name)
+                    choiceTest=True
+                elif magiclist == 'gelo':
+                    for gelo in (random.randint(range(0, 65, 5)))
+                    enemyHP -= gelo
+                    print (player.name, 'infligiu', gelo, 'de dano a', mon.name)
+                    choiceTest=True
+                elif magiclist == 'agua':
+                    for agua in (random.randint(range(0, 60, 5)))
+                    enemyHP -= agua
+                    print (player.name, 'infligiu', agua, 'de dano a', mon.name)
+                    choiceTest=True
+                else
+                 print ('Escolha fogo, gelo ou agua: ')
+            elif (plyinpt =='i'):
+                itemlist = str(input('Escolha o item 25hp, 50hp, 40mp ou defesa: '))
+                if itemlist == '25hp':
+                    player.hp = player.hp + 25
+                    print ('Novo hp de ', player.name, 'é ', player.hp)
+                    choiceTest=True
+                elif itemlist == '50hp'
+                    player.hp = player.hp + 50
+                    print ('Novo hp de ', player.name, 'é ', player.hp)
+                    choiceTest=True
+                elif itemlis == '40mp'
+                    player.mp = player.mp + 40
+                    print ('Novo mp de ', player.mp, 'é ', player.mp)
+                    choiceTest=True
+                elif itemlist == 'defesa'
+                    mon.atk = mon.atk - mon.atk*0.20
+                    print ('Defesa aprimorada em 20%')
+                    choiceTest=True
+                else
+                    print ('Escolha o item 25hp, 50hp, 40mp ou defesa: ')
             else:
                 print('Escolha inválida (',plyrinpt,')')
         if(enemyHP > 0 and player.hp > 0 and run==False):
